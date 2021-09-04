@@ -1,0 +1,28 @@
+import React from 'react'
+import {MessagesStyle} from '../../../StyledComponents/Flex/Flex';
+import {MessagesTypes} from '../../../Redux/Redux';
+import {StyleMessageAvatarImg} from '../../../StyledComponents/Img/ImageStyle';
+import {StyleMessagesTextP, StyleMessageTimeP} from '../../../StyledComponents/Text/TextP';
+import {StyleDialogsMessagesNameH} from '../../../StyledComponents/Text/TextH';
+import {StyleMessageDescripDiv} from '../../../StyledComponents/Div';
+
+const divText = {
+    borderBottom: 'solid 1px #8080807d',
+    marginLeft: '30px',
+    width: '550px'
+}
+
+export const Messages: React.FC<MessagesTypes> = ({id, src, time, name, text}) => {
+    return (
+        <MessagesStyle>
+            <div>
+                <StyleMessageAvatarImg src={src} alt="avatar photo"/>
+            </div>
+            <StyleMessageDescripDiv style={divText}>
+                <StyleMessageTimeP>{time}</StyleMessageTimeP>
+                <StyleDialogsMessagesNameH>{name}</StyleDialogsMessagesNameH>
+                <StyleMessagesTextP>{text}</StyleMessagesTextP>
+            </StyleMessageDescripDiv>
+        </MessagesStyle>
+    )
+}
