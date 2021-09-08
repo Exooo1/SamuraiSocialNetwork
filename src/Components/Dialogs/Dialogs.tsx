@@ -1,23 +1,24 @@
 import React from 'react'
+import {MessagesTypes} from '../../Redux/Redux'
+import {TypesMessagesArray} from '../../InterfaceTypes/InterfaceTypes'
 import {DialogStyle} from '../../StyledComponents/Flex/Flex';
-import {Messages} from './Messages/Messages';
-import {MessagesTypes, object} from '../../Redux/Redux'
-import {Link} from 'react-router-dom';
 import {StyleDialogsMessages} from '../../StyledComponents/Text/TextH';
+import {Messages} from './Messages/Messages';
+import {Link} from 'react-router-dom';
 
-const messages = object.messages
-
-const styleHr={
+const styleHr = {
     width: '350px',
     color: 'grey'
 }
-export const Dialogs = () => {
+
+export const Dialogs: React.FC<TypesMessagesArray> = ({store}) => {
+    console.log(store)
     return (
         <DialogStyle>
             <StyleDialogsMessages>Messages</StyleDialogsMessages>
             <hr style={styleHr}/>
-            {messages.map((item:MessagesTypes)=>{
-                return <Link style={{textDecoration: 'none'}} to='hey' key={item.id}>
+            {store.messages.map((item: MessagesTypes) => {
+                return <Link style={{textDecoration: 'none'}} to="hey" key={item.id}>
                     <Messages id={item.id} src={item.src} time={item.time} name={item.name} text={item.text}/>
                 </Link>
             })}

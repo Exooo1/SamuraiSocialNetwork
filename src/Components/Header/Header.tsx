@@ -1,38 +1,33 @@
 import React from 'react'
-import {HeaderStyle} from '../../StyledComponents/Div'
+import {StyleLogoOneImg, StyleLogoTwoImg} from '../../StyledComponents/Img/ImageStyle';
 import {LogoTextH, HeaderStyleLink} from '../../StyledComponents/Text/TextH';
+import {HeaderStyle} from '../../StyledComponents/Div'
 import {LogoTextP} from '../../StyledComponents/Text/TextP';
-import {Link} from 'react-router-dom'
-import {Footer} from '../Footer/Footer';
-import {Nav} from '../Nav/Nav';
 import {LogoFlex} from '../../StyledComponents/Flex/Flex';
+import {state} from '../../Redux/Redux'
+import {Footer} from '../Footer/Footer';
+import {Link} from 'react-router-dom'
+import {Nav} from '../Nav/Nav';
 import samuraiLogoOne from '../../Images/samuraiLogoOne.png'
 import samuraiLogoTwo from '../../Images/samuraiLogoTwo.png'
 
+const store = state
+
 export const Header = () => {
+    console.log(store)
     return (
         <>
             <HeaderStyle>
                 <LogoFlex>
                     <Link to="/" style={HeaderStyleLink}>
-                        <img alt="logoOne" style={{
-                            width: '90px',
-                            position: 'absolute',
-                            left: '90px',
-                        }}
-                             src={samuraiLogoTwo}/>
-                        <img alt="logoTwo" style={{
-                            width: '90px',
-                            position: 'absolute',
-                            left: '330px',
-                        }}
-                             src={samuraiLogoOne}/>
+                        <StyleLogoOneImg alt="logoOne" src={samuraiLogoTwo}/>
+                        <StyleLogoTwoImg alt="logoTwo" src={samuraiLogoOne}/>
                         <LogoTextH>SSN</LogoTextH>
                         <LogoTextP>SamuraiSocialNetwork</LogoTextP>
                     </Link>
                 </LogoFlex>
             </HeaderStyle>
-            <Nav/>
+            <Nav store={store}/>
             <Footer/>
         </>
     )

@@ -1,7 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {MyPosts} from './MyPost/MyPosts';
 import {MyPageFlex} from '../../../StyledComponents/Flex/Flex';
 import {AboutForMe, MyPageAbout} from '../../../StyledComponents/Div';
+import {TypesPostsArray} from '../../../InterfaceTypes/InterfaceTypes';
+import {add} from '../../../Redux/Redux'
 
 const user = {
     name: 'Vlas',
@@ -13,7 +15,10 @@ const user = {
     city: 'Minsk'
 }
 
-export const MyPage = () => {
+export const MyPage: React.FC<TypesPostsArray> = ({storePosts}) => {
+    console.log(storePosts)
+
+    const [value, setValue] = useState<string>('')
 
     return (
         <>
@@ -29,7 +34,9 @@ export const MyPage = () => {
                     <p>City : {user.city}</p>
                 </AboutForMe>
             </MyPageFlex>
-            <MyPosts/>
+            <input type="text" value={value} onChange={(e) => setValue(e.currentTarget.value)}/>
+            <button onClick={()=>add(value)}>add</button>
+            <MyPosts storePosts={storePosts} />
         </>
     )
 }

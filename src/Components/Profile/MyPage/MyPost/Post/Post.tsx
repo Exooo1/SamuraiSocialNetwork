@@ -1,11 +1,13 @@
 import React from 'react'
 import {PostStyle} from '../../../../../StyledComponents/Div'
+import {PostTypes} from '../../../../../Redux/Redux';
 
-export const Post =()=>{
+export const Post:React.FC<PostTypes>  = ({id,src,text}) => {
     return (
-         <PostStyle>
-             <img style={{width:'120px',height:'120px'}} src='https://lh3.googleusercontent.com/Nw8X3dqsFBs1rRs_pjdJgS8TSPcHk_ppU8WBLwrPutz_78zNJXK-rTWPqZpNeoPllJAFWgAB1s1gVhMPK_KQaSIWV_CpNG8z35PL7tHX-YNrc-2C9ZSTKpyiDdgGnc2hRiXcdDVN' alt='photo'/>
-             <p>dasdasdasdasdasd</p>
-         </PostStyle>
+        <PostStyle key={id}>
+            <img alt="ref" style={{width: '120px', height: '120px'}}
+                 src={src}/>
+            <p>{text}</p>
+        </PostStyle>
     )
 }
