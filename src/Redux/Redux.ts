@@ -1,4 +1,5 @@
 export {}
+let render = () => { }
 
 export interface MessagesTypes {
     id: number
@@ -93,4 +94,9 @@ export const add = (text: string) => {
         text: text
     }
     state.posts.push(obj)
+    render()
+}
+
+export const subscribe = (observer: () => void) => {
+    render = observer
 }

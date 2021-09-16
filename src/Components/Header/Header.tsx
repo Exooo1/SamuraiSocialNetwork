@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import {StyleLogoOneImg, StyleLogoTwoImg} from '../../StyledComponents/Img/ImageStyle';
 import {LogoTextH, HeaderStyleLink} from '../../StyledComponents/Text/TextH';
 import {HeaderStyle} from '../../StyledComponents/Div'
@@ -10,11 +10,23 @@ import {Link} from 'react-router-dom'
 import {Nav} from '../Nav/Nav';
 import samuraiLogoOne from '../../Images/samuraiLogoOne.png'
 import samuraiLogoTwo from '../../Images/samuraiLogoTwo.png'
+import axios from 'axios';
 
 const store = state
 
 export const Header = () => {
-    console.log(store)
+    const [date, setDate] = useState<any>()
+
+    useEffect(() => {
+        axios.get(`https://jsonplaceholder.typicode.com/users`)
+            .then(res => {
+                console.log(res)
+                setDate(res.data)
+            })
+        console.log(date)
+    }, [])
+
+
     return (
         <>
             <HeaderStyle>
@@ -28,6 +40,9 @@ export const Header = () => {
                 </LogoFlex>
             </HeaderStyle>
             <Nav store={store}/>
+            {date && date.map((item: any) => {
+                return <p>{item.name}</p>
+            })}
             <Footer/>
         </>
     )

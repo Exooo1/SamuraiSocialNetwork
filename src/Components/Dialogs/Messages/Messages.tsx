@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom';
 import {MessagesStyle} from '../../../StyledComponents/Flex/Flex';
 import {MessagesTypes} from '../../../Redux/Redux';
 import {StyleMessageAvatarImg} from '../../../StyledComponents/Img/ImageStyle';
@@ -14,15 +15,17 @@ const divText = {
 
 export const Messages: React.FC<MessagesTypes> = ({id, src, time, name, text}) => {
     return (
-        <MessagesStyle>
-            <div>
-                <StyleMessageAvatarImg src={src} alt="avatar photo"/>
-            </div>
-            <StyleMessageDescripDiv style={divText}>
-                <StyleMessageTimeP>{time}</StyleMessageTimeP>
-                <StyleDialogsMessagesNameH>{name}</StyleDialogsMessagesNameH>
-                <StyleMessagesTextP>{text}</StyleMessagesTextP>
-            </StyleMessageDescripDiv>
-        </MessagesStyle>
+        <Link key={id} to={`${id}`} style={{textDecoration: 'none'}}>
+            <MessagesStyle>
+                <div>
+                    <StyleMessageAvatarImg src={src} alt="avatar photo"/>
+                </div>
+                <StyleMessageDescripDiv style={divText}>
+                    <StyleMessageTimeP>{time}</StyleMessageTimeP>
+                    <StyleDialogsMessagesNameH>{name}</StyleDialogsMessagesNameH>
+                    <StyleMessagesTextP>{text}</StyleMessagesTextP>
+                </StyleMessageDescripDiv>
+            </MessagesStyle>
+        </Link>
     )
 }

@@ -34,9 +34,14 @@ export const MyPage: React.FC<TypesPostsArray> = ({storePosts}) => {
                     <p>City : {user.city}</p>
                 </AboutForMe>
             </MyPageFlex>
-            <input type="text" value={value} onChange={(e) => setValue(e.currentTarget.value)}/>
-            <button onClick={()=>add(value)}>add</button>
-            <MyPosts storePosts={storePosts} />
+            <input type="text" value={value} onChange={(e) => {
+                setValue(e.currentTarget.value)
+            }}/>
+            <button onClick={() => {
+                add(value)
+                setValue('')
+            }}>add</button>
+            <MyPosts storePosts={storePosts}/>
         </>
     )
 }
