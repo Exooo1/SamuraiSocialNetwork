@@ -1,7 +1,4 @@
-export {}
-let render = () => { }
-
-export interface MessagesTypes {
+export type MessagesTypes = {
     id: number
     src: string
     time: string
@@ -9,18 +6,9 @@ export interface MessagesTypes {
     text: string
 }
 
-export interface PostTypes {
-    id: number
-    src: string
-    text: string
-}
+export type MessagesInitialState = typeof initalState
 
-export interface ObjectTypes {
-    messages: Array<MessagesTypes>
-    posts: Array<PostTypes>
-}
-
-export const state: ObjectTypes = {
+const initalState = {
     messages: [
         {
             id: 1,
@@ -57,46 +45,33 @@ export const state: ObjectTypes = {
             name: 'Diana Maskalenchik',
             text: 'Текст песни группы «Сплин» «Помолчим немного» был прислан Александру Васильеву поклонником на электронную почту. Музыканту понравилось произведение и после произведенной дополнительной редакции он включил его в репертуар коллектива.'
         },
-    ],
-    posts: [
-        {
-            id: 1,
-            src: 'https://api.time.com/wp-content/uploads/2021/03/nft-art-2.jpg',
-            text: 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It'
-        },
-        {
-            id: 2,
-            src: 'https://api.time.com/wp-content/uploads/2021/03/nft-art-2.jpg',
-            text: 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It'
-        },
-        {
-            id: 3,
-            src: 'https://api.time.com/wp-content/uploads/2021/03/nft-art-2.jpg',
-            text: 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It'
-        },
-        {
-            id: 4,
-            src: 'https://api.time.com/wp-content/uploads/2021/03/nft-art-2.jpg',
-            text: 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It'
-        },
-        {
-            id: 5,
-            src: 'https://api.time.com/wp-content/uploads/2021/03/nft-art-2.jpg',
-            text: 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It'
-        },
-    ]
+    ] as Array<MessagesTypes>,
 }
 
-export const add = (text: string) => {
-    const obj = {
-        id: 7,
-        src: 'https://api.time.com/wp-content/uploads/2021/03/nft-art-2.jpg',
-        text: text
+export const MessagesReducer = (state = initalState, action: ActionMessagesType): MessagesInitialState => {
+    switch (action.type) {
+        case 'ADD_MESSAGE':
+            const mess = {
+                id: 6,
+                src: 'https://i.pinimg.com/564x/49/60/32/496032fb38b76e5bc22f8eb1d4a5d9be.jpg',
+                time: '19:00',
+                name: 'ITECHART',
+                text: action.text
+            }
+            return {
+                ...state,
+                messages: [...state.messages, mess]
+            }
+        default:
+            return {...state}
     }
-    state.posts.push(obj)
-    render()
 }
 
-export const subscribe = (observer: () => void) => {
-    render = observer
+export type ActionMessagesType = ReturnType<typeof addMessageActionCreator>
+
+export const addMessageActionCreator = (text: string) => {
+    return {
+        type: 'ADD_MESSAGE',
+        text
+    } as const
 }

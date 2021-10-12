@@ -2,8 +2,10 @@ import React, {useState} from 'react'
 import {MyPosts} from './MyPost/MyPosts';
 import {MyPageFlex} from '../../../StyledComponents/Flex/Flex';
 import {AboutForMe, MyPageAbout} from '../../../StyledComponents/Div';
-import {TypesPostsArray} from '../../../InterfaceTypes/InterfaceTypes';
-import {add} from '../../../Redux/Redux'
+import {PostIinitialTypes} from '../../../Redux/PostReducer'
+import {ContainerMyPosts} from './MyPost/ContainerMyPosts'
+import {ActionPostType} from '../../../Redux/PostReducer';
+
 
 const user = {
     name: 'Vlas',
@@ -15,11 +17,14 @@ const user = {
     city: 'Minsk'
 }
 
-export const MyPage: React.FC<TypesPostsArray> = ({storePosts}) => {
-    console.log(storePosts)
+type MyPageType = {
+    posts: PostIinitialTypes
+    dispatch: (text: ActionPostType) => void
+}
+
+export const MyPage: React.FC<MyPageType> = ({posts, dispatch}) => {
 
     const [value, setValue] = useState<string>('')
-
     return (
         <>
             <MyPageFlex>
@@ -38,10 +43,11 @@ export const MyPage: React.FC<TypesPostsArray> = ({storePosts}) => {
                 setValue(e.currentTarget.value)
             }}/>
             <button onClick={() => {
-                add(value)
+                dispatch({type: 'ADD_POST', post: value})
                 setValue('')
-            }}>add</button>
-            <MyPosts storePosts={storePosts}/>
+            }}>add
+            </button>
+            <ContainerMyPosts/>
         </>
     )
 }

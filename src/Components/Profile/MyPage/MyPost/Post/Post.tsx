@@ -1,6 +1,6 @@
 import React from 'react'
 import {PostStyle} from '../../../../../StyledComponents/Div'
-import {PostTypes} from '../../../../../Redux/Redux';
+import {PostTypes} from '../../../../../Redux/PostReducer';
 
 export const Post:React.FC<PostTypes>  = ({id,src,text}) => {
     return (

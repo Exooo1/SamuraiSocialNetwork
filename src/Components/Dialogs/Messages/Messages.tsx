@@ -1,11 +1,11 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
 import {MessagesStyle} from '../../../StyledComponents/Flex/Flex';
-import {MessagesTypes} from '../../../Redux/Redux';
 import {StyleMessageAvatarImg} from '../../../StyledComponents/Img/ImageStyle';
 import {StyleMessagesTextP, StyleMessageTimeP} from '../../../StyledComponents/Text/TextP';
 import {StyleDialogsMessagesNameH} from '../../../StyledComponents/Text/TextH';
 import {StyleMessageDescripDiv} from '../../../StyledComponents/Div';
+import {MessagesTypes} from '../../../Redux/MessagesReducer'
 
 const divText = {
     borderBottom: 'solid 1px #8080807d',
@@ -13,7 +13,9 @@ const divText = {
     width: '550px'
 }
 
+
 export const Messages: React.FC<MessagesTypes> = ({id, src, time, name, text}) => {
+    console.log('message')
     return (
         <Link key={id} to={`${id}`} style={{textDecoration: 'none'}}>
             <MessagesStyle>

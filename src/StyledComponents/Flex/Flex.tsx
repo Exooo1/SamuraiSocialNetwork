@@ -27,17 +27,12 @@ export const MyPostsFlex = styled(SimpleFlex)`
   flex-direction: column;
   margin-top: 2%;
 `
-export const DialogStyle = styled(SimpleFlex)`
-  width: 700px;
-  flex-direction: column;
-  border-radius: 10px;
-  border: solid 1.5px #8080808a;
-  background-color: white;
-`
 
 export const MessagesStyle = styled(SimpleFlex)`
   &:hover{
-    width: 680px;
+    color: pointer;
+    transform: translate(0px);
+    width: 700px;
     border-radius: 40px;
     transition: 0.5s;
     transform: scale(1.02);
