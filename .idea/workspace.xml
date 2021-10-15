@@ -2,30 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7ae943a-9121-45a4-b28f-ddc320cde34b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Dialogs/ContainerDialogs.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Dialogs/DialogsStyleds.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Profile/MyPage/MyPost/ContainerMyPosts.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Users/User/User.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Users/Users.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Redux/PostReducer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Redux/ReduxStore.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Redux/UserReducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Dialogs/Dialogs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dialogs/Dialogs.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Dialogs/Messages/Messages.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dialogs/Messages/Messages.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Home.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Nav/Nav.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Nav/Nav.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Profile/MyPage/MyPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/MyPage/MyPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Profile/MyPage/MyPost/MyPosts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/MyPage/MyPost/MyPosts.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Profile/MyPage/MyPost/Post/Post.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/MyPage/MyPost/Post/Post.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InterfaceTypes/InterfaceTypes.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Redux/Redux.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StyledComponents/Flex/Flex.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/StyledComponents/Flex/Flex.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/Test01.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/Test01.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -167,7 +145,9 @@
       <workItem from="1633805470081" duration="2585000" />
       <workItem from="1633888078177" duration="26000" />
       <workItem from="1634039811722" duration="688000" />
-      <workItem from="1634045148685" duration="4942000" />
+      <workItem from="1634045148685" duration="5655000" />
+      <workItem from="1634316194012" duration="244000" />
+      <workItem from="1634316463755" duration="75000" />
     </task>
     <servers />
   </component>
