@@ -2,9 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7ae943a-9121-45a4-b28f-ddc320cde34b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Components/API/profile-api.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/API/users-api.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Header/HeaderContainer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Login/Login.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Profile/ProfileContainer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Users/UsersAPI.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Redux/AuthReducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Dialogs/ContainerDialogs.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dialogs/ContainerDialogs.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Dialogs/Dialogs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dialogs/Dialogs.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Nav/Nav.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Nav/Nav.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Profile/MyPage/MyPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/Profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Profile/MyPage/MyPost/ContainerMyPosts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/MyPost/ContainerMyPosts.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Profile/MyPage/MyPost/MyPosts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/MyPost/MyPosts.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Profile/MyPage/MyPost/Post/Post.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/MyPost/Post/Post.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Users/User/User.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Users/User/User.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Users/Users.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Users/Users.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Redux/ReduxStore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redux/ReduxStore.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Redux/UserReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redux/UserReducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StyledComponents/Flex/Flex.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/StyledComponents/Flex/Flex.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,8 +36,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -58,6 +80,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Projects\socialnetwork\src\Components\Profile" />
       <recent name="D:\Projects\socialnetwork\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -148,7 +171,23 @@
       <workItem from="1634045148685" duration="5655000" />
       <workItem from="1634316194012" duration="244000" />
       <workItem from="1634316463755" duration="1355000" />
-      <workItem from="1634327208958" duration="27000" />
+      <workItem from="1634327208958" duration="1233000" />
+      <workItem from="1634414323694" duration="19000" />
+      <workItem from="1634735892735" duration="3877000" />
+      <workItem from="1634744404413" duration="21000" />
+      <workItem from="1636452062254" duration="2097000" />
+      <workItem from="1636458834280" duration="2649000" />
+      <workItem from="1636462053208" duration="7158000" />
+      <workItem from="1636470585977" duration="705000" />
+      <workItem from="1636548541034" duration="5070000" />
+      <workItem from="1636555398731" duration="6620000" />
+      <workItem from="1636703560793" duration="29000" />
+      <workItem from="1637067386481" duration="8063000" />
+      <workItem from="1637088342869" duration="2309000" />
+      <workItem from="1637140661200" duration="19000" />
+      <workItem from="1637163708253" duration="604000" />
+      <workItem from="1637340900020" duration="1552000" />
+      <workItem from="1637512430756" duration="4647000" />
     </task>
     <servers />
   </component>

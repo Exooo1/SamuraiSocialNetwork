@@ -1,37 +1,54 @@
+import { Dispatch } from "redux"
+import { usersAPI } from "../Components/API/users-api"
+
 export {}
 
-export type ActionType = ReturnType<typeof followUnfollowAC>
+export type ActionType =
+    ReturnType<typeof followUnfollowAC>
+    | ReturnType<typeof addUsersAC>
+    | ReturnType<typeof changeCurrentPageAC>
+    | ReturnType<typeof ChangeDisabledButtonAC>
 
 export type UserType = {
+    followed: boolean
     id: number
     name: string
-    surname: string
-    country: string
-    city: string
-    folUn: boolean
-    src:string
+    photos: {
+        large: null
+        small: null
+    }
+    status: null
+    uniqueUrlName: null
 }
 
 export type UsersType = typeof initialUser
+export type Numbers = number
 
 const initialUser = {
-    users: [{id: 1, name: 'Vlas', surname: 'Maskalenchik', country: 'Belarus', city: 'Minsk', folUn: false,src:'https://www.pngitem.com/pimgs/m/192-1926160_transparent-ajax-png-anime-profile-png-download.png'},
-        {id: 2, name: 'Diana', surname: 'Maskalenchik', country: 'Belarus', city: 'Minsk', folUn: false,src:'https://www.pngitem.com/pimgs/m/192-1926160_transparent-ajax-png-anime-profile-png-download.png'},
-        {id: 3, name: 'Vlad', surname: 'Maskalenchik', country: 'Ukraine', city: 'Bobruisk', folUn: false,src:'https://www.pngitem.com/pimgs/m/192-1926160_transparent-ajax-png-anime-profile-png-download.png'},
-        {id: 4, name: 'Evgeniy', surname: 'Maskalenchik', country: 'Russia', city: 'Gomel', folUn: false,src:'https://www.pngitem.com/pimgs/m/192-1926160_transparent-ajax-png-anime-profile-png-download.png'},
-    ] as Array<UserType>
+    users: [] as Array<UserType>,
+    pageSize: 25 as Numbers,
+    totalCount: 0 as Numbers,
+    currentPage: 1 as Numbers,
+    disableButton: false as boolean
 }
 
 export const UserReducer = (state = initialUser, action: ActionType) => {
+
     switch (action.type) {
         case 'FOLLOW_UNFOLLOW':
             return {
                 ...state,
                 users: [...state.users.map(item => item.id === action.value ? {
                     ...item,
-                    folUn: !item.folUn
+                    followed: !item.followed
                 } : {...item})]
             }
+        case 'ADD_USERS':
+            return {...state, users: action.arr, totalCount: action.totalCount}
+        case 'CHANGE_CURRENT_PAGE':
+            return {...state, currentPage: action.page}
+        case 'CHANGE_DISABLED_BUTTON':
+            return {...state, disableButton: !state.disableButton}
         default:
             return {...state}
     }
@@ -41,6 +58,45 @@ export const followUnfollowAC = (value: number) => {
     return {
         type: 'FOLLOW_UNFOLLOW',
         value
-    }
+    } as const
+}
+
+export const addUsersAC = (arr: Array<UserType>, totalCount: number) => {
+    return {
+        type: 'ADD_USERS',
+        arr,
+        totalCount
+
+    } as const
+}
+
+export const changeCurrentPageAC = (page: number) => {
+    return {
+        type: 'CHANGE_CURRENT_PAGE',
+        page
+    } as const
+}
+
+export const ChangeDisabledButtonAC = () => {
+    return {type: 'CHANGE_DISABLED_BUTTON'} as const
+}
+
+export const  getUsersTC =(currentPage:number,pageSize:number)=>(dispatch:Dispatch)=>{
+    usersAPI.getUsers(currentPage, pageSize).then(res => dispatch(addUsersAC(res.data.items, res.data.totalCount)))
+}
+
+export const followUserTC = (value:number)=>(dispatch:Dispatch)=>{
+    dispatch(ChangeDisabledButtonAC())
+    usersAPI.followUsers(value).then(res => {
+        dispatch(followUnfollowAC(value))
+        dispatch(ChangeDisabledButtonAC())
+    })
+}
+export const unfollowUserTC = (value:number)=>(dispatch:Dispatch)=>{
+    dispatch(ChangeDisabledButtonAC())
+    usersAPI.followUsers(value).then(res => {
+        dispatch(followUnfollowAC(value))
+        dispatch(ChangeDisabledButtonAC())
+    })
 }
 

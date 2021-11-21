@@ -1,7 +1,7 @@
 import React from 'react'
-import {MyPostsFlex} from '../../../../StyledComponents/Flex/Flex';
+import {MyPostsFlex} from '../../../StyledComponents/Flex/Flex';
 import {Post} from './Post/Post';
-import {PostTypes} from '../../../../Redux/PostReducer'
+import {PostTypes} from '../../../Redux/PostReducer'
 import {TypePropsMyPost} from './ContainerMyPosts';
 
 

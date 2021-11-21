@@ -23,13 +23,13 @@ export const MyPageFlex = styled(SimpleFlex)`
 `
 
 export const MyPostsFlex = styled(SimpleFlex)`
-  width: 700px;
+  width: 700 a;
   flex-direction: column;
   margin-top: 2%;
 `
 
 export const MessagesStyle = styled(SimpleFlex)`
-  &:hover{
+  &:hover {
     color: pointer;
     transform: translate(0px);
     width: 700px;
@@ -38,5 +38,6 @@ export const MessagesStyle = styled(SimpleFlex)`
     transform: scale(1.02);
     background-color: #f3ecec;
   }
+
   width: 700px;
 `

@@ -1,21 +1,27 @@
 import React from 'react'
+import {NavLink} from 'react-router-dom'
 
 type UserTypes = {
-    followUnfollow: () => void
     id: number
     name: string
-    surname: string
-    country: string
-    city: string
-    folUn: boolean
-    src: string
+    followed: boolean
+    follow: () => void
+    unfollow: () => void
+    buttonDisabled: boolean
 }
 
-export const User = ({id, name, surname, country, city, folUn, followUnfollow, src}: UserTypes) => {
+
+export const User = ({id, name, followed, follow, unfollow, buttonDisabled}: UserTypes,) => {
     return <div>
-        <img src={src} alt={'avatar'} style={{borderRadius: '30%', width: '100px', height: '100px'}}/>
-        <h4>Name: {name} Surname: {surname}</h4>
-        <p>Country: {country} City: {city}</p>
-        {folUn ? <button onClick={followUnfollow}>Unfollow</button> : <button onClick={followUnfollow}>Follow</button>}
+        <NavLink to={'/profile/' + id}>
+
+            <img
+                src={'https://besthqwallpapers.com/Uploads/17-2-2018/41098/thumb2-zero-two-manga-anime-characters-pink-hair-darling-in-the-franxx.jpg'}
+                alt={'avatar'} style={{borderRadius: '30%', width: '100px', height: '100px'}}/>
+        </NavLink>
+        <h4>Name: {name} </h4>
+
+        {followed ? <button disabled={buttonDisabled} onClick={unfollow}>Unfollow</button> :
+            <button disabled={buttonDisabled} onClick={follow}>Follow</button>}
     </div>
 }

@@ -1,7 +1,7 @@
 import {Dispatch} from 'redux'
 import {connect} from 'react-redux'
-import {StoreType} from '../../../../Redux/ReduxStore'
-import {PostIinitialTypes} from '../../../../Redux/PostReducer'
+import {StoreType} from '../../../Redux/ReduxStore'
+import {PostIinitialTypes} from '../../../Redux/PostReducer'
 import {MyPosts} from './MyPosts'
 
 

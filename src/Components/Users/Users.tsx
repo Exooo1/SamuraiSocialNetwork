@@ -1,23 +1,40 @@
 import React from 'react'
-import {useDispatch, useSelector} from 'react-redux'
-import {StoreType} from '../../Redux/ReduxStore'
-import {followUnfollowAC, UsersType} from '../../Redux/UserReducer'
+import {UserType} from '../../Redux/UserReducer'
 import {User} from './User/User'
+import gifSamur from '../../Images/gifSamurai.gif'
 
-export const Users = () => {
-    const dispatch = useDispatch()
-    const userSelector = useSelector<StoreType, UsersType>(state => state.user)
-    const followUnfollow = (value: number) => {
-        dispatch(followUnfollowAC(value))
+
+export type UsersTypes = {
+    pagesCount: number
+    getUsers: Array<UserType>
+    follow: (value: number) => void
+    changeCurrentPage: (value: number) => void
+    unfollow:(value:number)=>void
+    buttonDisabled:boolean
+}
+
+export const Users: React.FC<UsersTypes> = ({pagesCount, getUsers, follow, changeCurrentPage,unfollow,buttonDisabled}) => {
+    const pages = []
+    for (let i = 1; i <= pagesCount; i++) {
+        pages.push(i)
     }
-    return <div>
+    return <>
         <h3>All Users</h3>
-        {userSelector.users.map(item => <User folUn={item.folUn}
-                                              src={item.src}
-                                              followUnfollow={() => followUnfollow(item.id)}
-                                              key={item.id + item.name} id={item.id} name={item.name}
-                                              surname={item.surname}
-                                              country={item.country}
-                                              city={item.city}/>)}
-    </div>
+        {getUsers.length ? getUsers.map(item => <User
+            buttonDisabled={buttonDisabled}
+            followed={item.followed}
+            unfollow={()=>unfollow(item.id)}
+            follow={() => follow(item.id)}
+            key={item.id + item.name} id={item.id} name={item.name}
+        />) : <img
+            src={gifSamur}
+            alt="gif"/>}
+
+        <div>
+            {pages.map(item => {
+                return <div onClick={() => changeCurrentPage(item)}
+                            className={true ? '' : ''}>{item}</div>
+            })}
+        </div>
+    </>
 }

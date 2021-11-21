@@ -10,7 +10,12 @@ import {Nav} from '../Nav/Nav';
 import samuraiLogoOne from '../../Images/samuraiLogoOne.png'
 import samuraiLogoTwo from '../../Images/samuraiLogoTwo.png'
 
-export const Header = () => {
+type TypeHeader = {
+    resultCode: number
+}
+
+export const Header = ({resultCode}: TypeHeader) => {
+
 
     return (
         <>
@@ -23,6 +28,9 @@ export const Header = () => {
                         <LogoTextP>SamuraiSocialNetwork</LogoTextP>
                     </Link>
                 </LogoFlex>
+                {resultCode ? <span>free</span> : <div>
+                    <Link to={'/login'}>Login</Link>
+                </div>}
             </HeaderStyle>
             <Nav/>
             <Footer/>
