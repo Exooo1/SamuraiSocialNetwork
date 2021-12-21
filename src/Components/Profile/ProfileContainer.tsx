@@ -4,30 +4,30 @@ import {Redirect, RouteComponentProps, useHistory, useParams, withRouter} from '
 import {useDispatch, useSelector} from 'react-redux'
 import {ActionPostType, PostIinitialTypes} from '../../Redux/PostReducer'
 import {AddProfileAC, InitialProfileType} from '../../Redux/ProfileReducer'
-import {StoreType} from '../../Redux/ReduxStore'
+import {StoreType, useAppSelector} from '../../Redux/ReduxStore'
 import {Profile} from './Profile'
 import {AuthReducerType} from '../../Redux/AuthReducer'
 import {Login} from '../Login/Login'
+import {RedirectHOC} from '../HOC/RedirectHOC'
+import { compose } from 'redux'
 
+type QuizParams = {
+    userId: string;
+};
 type MyPageType = {
     posts: PostIinitialTypes
     dispatch: (text: ActionPostType) => void
 }
-type QuizParams = {
-    userId: string;
-};
 type PathParamsType = {
     userId: string
 }
 
 type TypeRouter = RouteComponentProps<PathParamsType> & MyPageType
 
-export const ProfileContainer: React.FC<TypeRouter> = ({posts, dispatch, ...props}) => {
+export const ProfileContainer = () => {
     let token = useParams<QuizParams>()
-    const getAuth = useSelector<StoreType, number>(state => state.authMe.resultCode)
-    console.log(getAuth)
-    const getProfile = useSelector<StoreType, InitialProfileType>(state => state.profile)
-    console.log(getProfile, getAuth)
+    const getAuth = useAppSelector<number>(state => state.authMe.resultCode)
+    const getProfile = useAppSelector<InitialProfileType>(state => state.profile)
     const dispatche = useDispatch()
     useEffect(() => {
         if (!token.userId) {
@@ -38,7 +38,7 @@ export const ProfileContainer: React.FC<TypeRouter> = ({posts, dispatch, ...prop
         })
     }, [])
 
-    if (getAuth === 1) return <Redirect to={'/login'}/>
+    // if (getAuth === 1) return <Redirect to={'/login'}/>
     return <div>
         {getProfile ? <Profile about={getProfile.user.aboutMe} fullName={getProfile.user.fullName}
                                photos={getProfile.user.photos}
@@ -48,4 +48,7 @@ export const ProfileContainer: React.FC<TypeRouter> = ({posts, dispatch, ...prop
         /> : null}
     </div>
 }
-export const ContainerParams = withRouter(ProfileContainer)
+// export const ContainerParams = withRouter(ProfileContainer)
+
+export default compose<React.ComponentType>(RedirectHOC
+)(ProfileContainer)

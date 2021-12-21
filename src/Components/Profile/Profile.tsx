@@ -24,7 +24,8 @@ export const Profile: React.FC<ProfileType> = ({
                                                    lookingForAJob,
                                                    lookingForAJobDescription
                                                }) => {
-    const [value, setValue] = useState('')
+    const [status, setStatus] = useState<string>('')
+    const [isStatus, setIsStatus] = useState<boolean>(false)
     return (
         <>
             <MyPageFlex>
@@ -32,19 +33,14 @@ export const Profile: React.FC<ProfileType> = ({
                     <img style={{borderRadius: '90px', width: '150px', height: '150px'}} src={photos.large}
                          alt=""/> : ''}
                 <AboutForMe>
+                    {isStatus ? <input autoFocus={true} onBlur={() => setIsStatus(false)} type="text" value={status}
+                                       onChange={(e) => setStatus(e.currentTarget.value)}/> :
+                        <h2 onDoubleClick={() => setIsStatus(true)}>Status: {status}</h2>}
                     <p>{about}: 05</p>
                     <p>FullName : {fullName}</p>
                     <p>{lookingForAJob ? 'Right now i for looking job' : 'I don\'t looking job'}</p>
                 </AboutForMe>
             </MyPageFlex>
-            <input type="text" value={value} onChange={(e) => {
-                setValue(e.currentTarget.value)
-            }}/>
-            {/*<button onClick={() => {*/}
-            {/*    dispatch({type: 'ADD_POST', post: value})*/}
-            {/*    setValue('')*/}
-            {/*}}>add*/}
-            {/*</button>*/}
             <ContainerMyPosts/>
         </>
     )

@@ -11,8 +11,7 @@ const styleHr = {
     color: 'grey'
 }
 
-export const Dialogs: React.FC<TypePropsDialogs> = ({messages, addMessageActionCreator,resultCode}) => {
-    console.log(addMessageActionCreator,'addMessage')
+export const Dialogs: React.FC<TypePropsDialogs> = ({messages, addMessageActionCreator, resultCode}) => {
     const [value, setValue] = useState<string>('')
     const [mess, setMess] = useState(messages)
     useEffect(() => {
@@ -25,11 +24,7 @@ export const Dialogs: React.FC<TypePropsDialogs> = ({messages, addMessageActionC
         })
         return a
     }, [mess])
-    //
-    // const showMessages =messages.messages.map(item => {
-    //             return <Messages id={item.id} src={item.src} time={item.time} name={item.name} text={item.text}/>
-    //         })
-    if(resultCode===1)return <Redirect to={'/login'}/>
+
     return (<DialogStyle>
             <StyleDialogsMessages>Messages</StyleDialogsMessages>
             <input value={value} onChange={(e) => setValue(e.currentTarget.value)}/>

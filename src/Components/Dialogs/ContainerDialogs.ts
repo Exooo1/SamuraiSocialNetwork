@@ -2,11 +2,12 @@ import {connect} from 'react-redux'
 import {ActionMessagesType, addMessageActionCreator, MessagesInitialState} from '../../Redux/MessagesReducer'
 import {StoreType} from '../../Redux/ReduxStore'
 import {Dialogs} from './Dialogs'
-import {Dispatch} from 'redux'
+import {compose, Dispatch} from 'redux'
+import {RedirectHOC} from '../HOC/RedirectHOC'
 
 type TypeMapStateToProps = {
     messages: MessagesInitialState
-    resultCode:number
+    resultCode: number
 
 }
 
@@ -21,7 +22,7 @@ export type  TypePropsDialogs = TypeMapStateToProps & TypeMapDispatchToProps
 const mapStateToProprs = (state: StoreType): TypeMapStateToProps => {
     return {
         messages: state.messages,
-        resultCode:state.authMe.resultCode
+        resultCode: state.authMe.resultCode
     }
 }
 
@@ -34,4 +35,13 @@ const mapStateToProprs = (state: StoreType): TypeMapStateToProps => {
 //     }
 // }
 
-export const ContainerDialogs = connect(mapStateToProprs, {addMessageActionCreator})(Dialogs)
+
+// const DialogsHOC = RedirectHOC(Dialogs)
+
+// export const ContainerDialogs = connect(mapStateToProprs, {addMessageActionCreator})(DialogsHOC)
+
+export default compose<React.ComponentType>(
+    connect(mapStateToProprs, {addMessageActionCreator}),
+    RedirectHOC
+)(Dialogs)
+

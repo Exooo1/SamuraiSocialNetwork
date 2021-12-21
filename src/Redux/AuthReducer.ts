@@ -1,7 +1,6 @@
 import {Dispatch} from 'redux'
 import {profileAPI} from '../Components/API/profile-api'
 
-export {}
 export type AuthReducerType = {
     id: number
     email: string
@@ -10,7 +9,6 @@ export type AuthReducerType = {
 }
 
 export type  ActionTypeAuth = ReturnType<typeof SetUserAC>
-
 
 const initialState: AuthReducerType = {
     id: 0,

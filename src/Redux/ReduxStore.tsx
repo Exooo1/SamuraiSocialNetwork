@@ -5,6 +5,7 @@ import {PostReducer} from './PostReducer';
 import {ProfileReducer} from './ProfileReducer';
 import {UserReducer} from './UserReducer';
 import thunkMiddlawere from 'redux-thunk'
+import { TypedUseSelectorHook, useSelector } from 'react-redux';
 
 
 const rootReducers = combineReducers({
@@ -16,5 +17,7 @@ const rootReducers = combineReducers({
 });
 
 export type StoreType = ReturnType<typeof rootReducers>
+
+export const useAppSelector: TypedUseSelectorHook<StoreType> = useSelector
 
 export const store = createStore(rootReducers, applyMiddleware(thunkMiddlawere));

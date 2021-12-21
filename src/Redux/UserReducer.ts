@@ -1,5 +1,7 @@
-import { Dispatch } from "redux"
-import { usersAPI } from "../Components/API/users-api"
+import {Dispatch} from 'redux'
+import {ThunkAction} from 'redux-thunk'
+import {usersAPI} from '../Components/API/users-api'
+import {StoreType} from './ReduxStore'
 
 export {}
 
@@ -81,18 +83,18 @@ export const ChangeDisabledButtonAC = () => {
     return {type: 'CHANGE_DISABLED_BUTTON'} as const
 }
 
-export const  getUsersTC =(currentPage:number,pageSize:number)=>(dispatch:Dispatch)=>{
+export const getUsersTC = (currentPage: number, pageSize: number) => (dispatch: Dispatch) => {
     usersAPI.getUsers(currentPage, pageSize).then(res => dispatch(addUsersAC(res.data.items, res.data.totalCount)))
 }
 
-export const followUserTC = (value:number)=>(dispatch:Dispatch)=>{
+export const followUserTC = (value: number) => (dispatch: Dispatch<ActionType>) => {
     dispatch(ChangeDisabledButtonAC())
     usersAPI.followUsers(value).then(res => {
         dispatch(followUnfollowAC(value))
         dispatch(ChangeDisabledButtonAC())
     })
 }
-export const unfollowUserTC = (value:number)=>(dispatch:Dispatch)=>{
+export const unfollowUserTC = (value: number) => (dispatch: Dispatch<ActionType>) => {
     dispatch(ChangeDisabledButtonAC())
     usersAPI.followUsers(value).then(res => {
         dispatch(followUnfollowAC(value))
@@ -100,3 +102,22 @@ export const unfollowUserTC = (value:number)=>(dispatch:Dispatch)=>{
     })
 }
 
+export type AppThunk<ReturnType = void> = ThunkAction<ReturnType, StoreType, unknown, ActionType>
+// export const s = (value: number): AppThunk => {
+//     return (dispatch) => {
+//         dispatch(ChangeDisabledButtonAC())
+//         usersAPI.followUsers(value).then(res => {
+//             dispatch(followUnfollowAC(value))
+//             dispatch(ChangeDisabledButtonAC())
+//             dispatch(followUserTC(2))
+//         })
+//     }
+// }
+// export const s = (value: number): AppThunk => async dispatch => {
+//     dispatch(ChangeDisabledButtonAC())
+//     usersAPI.followUsers(value).then(res => {
+//         dispatch(followUnfollowAC(value))
+//         dispatch(ChangeDisabledButtonAC())
+//         dispatch(followUserTC(2))
+//     })
+// }
