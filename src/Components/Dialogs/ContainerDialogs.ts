@@ -7,7 +7,7 @@ import {RedirectHOC} from '../HOC/RedirectHOC'
 
 type TypeMapStateToProps = {
     messages: MessagesInitialState
-    resultCode: number
+    resultCode: number | null
 
 }
 

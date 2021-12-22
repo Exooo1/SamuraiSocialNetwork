@@ -1,6 +1,8 @@
 import React from 'react'
+import {useDispatch} from 'react-redux'
+import {deleteAuthTC} from '../../Redux/AuthReducer'
 import {StyleLogoOneImg, StyleLogoTwoImg} from '../../StyledComponents/Img/ImageStyle';
-import {LogoTextH, HeaderStyleLink} from '../../StyledComponents/Text/TextH';
+import {HeaderStyleLink, LogoTextH} from '../../StyledComponents/Text/TextH';
 import {HeaderStyle} from '../../StyledComponents/Div'
 import {LogoTextP} from '../../StyledComponents/Text/TextP';
 import {LogoFlex} from '../../StyledComponents/Flex/Flex';
@@ -15,8 +17,10 @@ type TypeHeader = {
 }
 
 export const Header = ({resultCode}: TypeHeader) => {
-
-
+    const dispatch = useDispatch()
+    const logout = () => {
+        dispatch(deleteAuthTC())
+    }
     return (
         <>
             <HeaderStyle>
@@ -27,10 +31,15 @@ export const Header = ({resultCode}: TypeHeader) => {
                         <LogoTextH>SSN</LogoTextH>
                         <LogoTextP>SamuraiSocialNetwork</LogoTextP>
                     </Link>
+                    <span onClick={logout} style={{
+                        color: 'white',
+                        position: 'relative',
+                        left: '600px',
+                        top: '-20px',
+                        fontSize: '22px',
+                        cursor: 'pointer'
+                    }}>Logout</span>
                 </LogoFlex>
-                {resultCode ? <span>free</span> : <div>
-                    <Link to={'/login'}>Login</Link>
-                </div>}
             </HeaderStyle>
             <Nav/>
             <Footer/>
