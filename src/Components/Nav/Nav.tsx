@@ -8,11 +8,17 @@ import ContainerDialogs from '../Dialogs/ContainerDialogs'
 import {UsersAPI} from '../Users/UsersAPI';
 import {Login} from '../Login/Login'
 import ProfileHOC from '../Profile/ProfileContainer'
+import {useDispatch} from "react-redux";
+import {deleteAuthTC} from "../../Redux/AuthReducer";
 
 const stores = store.getState()
 console.log(stores)
 
 export const Nav = () => {
+    const dispatch = useDispatch()
+    const logout = () => {
+        dispatch(deleteAuthTC())
+    }
     return (
         <HeadGrid>
             <NavStyle>
@@ -23,6 +29,7 @@ export const Nav = () => {
                     <NavLink className="nav" to="/News">News</NavLink>
                     <NavLink className="nav" to="/Music">Music</NavLink>
                     <NavLink className="nav" to="/Settings">Settings</NavLink>
+                    <button onClick={logout}>Logout</button>
                 </NavFlex>
             </NavStyle>
             <BodyStyle>

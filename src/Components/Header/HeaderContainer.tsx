@@ -3,7 +3,6 @@ import {Header} from './Header'
 
 
 export const HeaderContainer = () => {
-
     return <Header resultCode={1}/>
 }
 

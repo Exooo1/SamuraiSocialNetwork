@@ -17,32 +17,23 @@ type TypeHeader = {
 }
 
 export const Header = ({resultCode}: TypeHeader) => {
-    const dispatch = useDispatch()
-    const logout = () => {
-        dispatch(deleteAuthTC())
-    }
+
     return (
         <>
-            <HeaderStyle>
-                <LogoFlex>
-                    <Link to="/" style={HeaderStyleLink}>
-                        <StyleLogoOneImg alt="logoOne" src={samuraiLogoTwo}/>
-                        <StyleLogoTwoImg alt="logoTwo" src={samuraiLogoOne}/>
-                        <LogoTextH>SSN</LogoTextH>
-                        <LogoTextP>SamuraiSocialNetwork</LogoTextP>
-                    </Link>
-                    <span onClick={logout} style={{
-                        color: 'white',
-                        position: 'relative',
-                        left: '600px',
-                        top: '-20px',
-                        fontSize: '22px',
-                        cursor: 'pointer'
-                    }}>Logout</span>
-                </LogoFlex>
-            </HeaderStyle>
-            <Nav/>
-            <Footer/>
+            <div style={{height: '100vh'}}>
+                <HeaderStyle>
+                    <LogoFlex>
+                        <Link to="/" style={HeaderStyleLink}>
+                            <StyleLogoOneImg alt="logoOne" src={samuraiLogoTwo}/>
+                            <StyleLogoTwoImg alt="logoTwo" src={samuraiLogoOne}/>
+                            <LogoTextH>SSN</LogoTextH>
+                            <LogoTextP>SamuraiSocialNetwork</LogoTextP>
+                        </Link>
+                    </LogoFlex>
+                </HeaderStyle>
+                <Nav/>
+            </div>
+            {/*<Footer/>*/}
         </>
     )
 }

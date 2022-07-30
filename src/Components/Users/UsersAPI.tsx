@@ -26,6 +26,7 @@ export const UsersAPI = memo(() => {
     const currentPage = useSelector<StoreType, Numbers>(state => state.user.currentPage)
     const buttonDisabled = useSelector<StoreType, boolean>(state => state.user.disableButton)
     useEffect(() => {
+        console.log('USEERRRRRRRRR!')
         dispatch(getUsersTC(currentPage, pageSize))
     }, [currentPage])
 

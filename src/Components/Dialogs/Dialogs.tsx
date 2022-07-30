@@ -10,7 +10,6 @@ const styleHr = {
     width: '350px',
     color: 'grey'
 }
-
 export const Dialogs: React.FC<TypePropsDialogs> = ({messages, addMessageActionCreator, resultCode}) => {
     const [value, setValue] = useState<string>('')
     const [mess, setMess] = useState(messages)

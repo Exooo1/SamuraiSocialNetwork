@@ -10,9 +10,23 @@ const instance = axios.create({
     }
 })
 
+type UserType = {
+    followed: boolean
+    id: number
+    name: string
+    photos: { small: null, large: null }
+    status: null
+    uniqueUrlName: null
+}
+type GetUsers = {
+    error: null
+    items: Array<UserType>
+    totalCount: number
+}
+
 export const usersAPI = {
     getUsers(currentPage: number, pageSize: number) {
-        return instance.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`)
+        return instance.get<GetUsers>(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`)
     },
     followUsers(value: number) {
         return instance.post(`follow/${value}`)

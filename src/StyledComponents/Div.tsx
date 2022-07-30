@@ -23,12 +23,16 @@ export const NavStyle = styled.nav`
 export const BodyStyle = styled.div`
   grid-area: body;
 `
-export const FooterStyle = styled(Div)`
+export const FooterStyle = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
   background-color: black;
-  height: 100px;
+  min-height: 100vh;
 `
 
-export const MyPageAbout = styled.div`   
+export const MyPageAbout = styled.div`
   font-size: 22px;
   border-bottom: solid 1.5px #adaaaa;
   color: black;
@@ -52,5 +56,24 @@ export const StyleMessageDescripDiv = styled(Div)`
   border-bottom: solid 1px #8080807d;
   margin-left: 30px;
   width: 550px;
+`
+
+export const StylePages = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1100px;
+  height: auto;
+  flex-wrap: wrap;
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 90px;
+    width: 30px;
+    height: 30px;
+    background: blueviolet;
+  }
 `
 

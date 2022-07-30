@@ -3,7 +3,6 @@ import {ThunkAction} from 'redux-thunk'
 import {usersAPI} from '../Components/API/users-api'
 import {StoreType} from './ReduxStore'
 
-export {}
 
 export type ActionType =
     ReturnType<typeof followUnfollowAC>
@@ -84,7 +83,10 @@ export const ChangeDisabledButtonAC = () => {
 }
 
 export const getUsersTC = (currentPage: number, pageSize: number) => (dispatch: Dispatch) => {
-    usersAPI.getUsers(currentPage, pageSize).then(res => dispatch(addUsersAC(res.data.items, res.data.totalCount)))
+    usersAPI.getUsers(currentPage, pageSize).then(res => {
+        dispatch(addUsersAC(res.data.items, res.data.totalCount))
+        console.log(res.data)
+    })
 }
 
 export const followUserTC = (value: number) => (dispatch: Dispatch<ActionType>) => {
